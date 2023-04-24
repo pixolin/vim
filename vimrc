@@ -37,14 +37,16 @@ set showcmd
 set backspace=indent,eol,start
 set t_Co=256
 
+set list
+set listchars=tab:>-,trail:·,extends:◀,precedes:▶,nbsp:≣
+
 call plug#begin()
 Plug 'tpope/vim-commentary'            " Comment lines
 Plug 'tpope/vim-fugitive'              " Git integration
 Plug 'jiangmiao/auto-pairs'            " Close brackets, quotes… 
 Plug 'frazrepo/vim-rainbow'            " Brackets in rainbow colors
 Plug 'itchyny/lightline.vim'           " status line
-Plug 'vim-airline/vim-airline-themes'  " status line theme
-Plug 'dracula/vim'
+Plug 'dracula/vim'                     " Dracula color theme
 call plug#end()
 
 " Rainbow brackets
@@ -56,7 +58,7 @@ colorscheme dracula
 
 " Lightline
 let g:lightline = {
-      \ 'colorscheme' : 'darcula', 
+      \ 'colorscheme' : 'dracula', 
       \ 'mode_map': {
         \ 'n' : 'N',
         \ 'i' : 'I',
