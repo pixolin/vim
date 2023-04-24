@@ -42,10 +42,12 @@ set listchars=tab:>-,trail:·,extends:◀,precedes:▶,nbsp:≣
 
 " Using https://github.com/junegunn/vim-plug
 call plug#begin()
+Plug 'tpope/vim-sensible'              " Universal set of defaults
 Plug 'tpope/vim-commentary'            " Comment lines
 Plug 'tpope/vim-fugitive'              " Git integration
 Plug 'jiangmiao/auto-pairs'            " Close brackets, quotes… 
 Plug 'frazrepo/vim-rainbow'            " Brackets in rainbow colors
+Plug 'editorconfig/editorconfig-vim'   " basic coding standards
 Plug 'itchyny/lightline.vim'           " status line
 Plug 'dracula/vim'                     " Dracula color theme
 call plug#end()
