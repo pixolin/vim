@@ -2,9 +2,9 @@
 
 Vim has the great advantage that it allows very fast changes of text 
 files in the command line. To maintain the performance advantage, I 
-only use a few settings and pluins that I find useful, e.g. to colorize
+only use a few settings and plugins that I find useful, e.g. to colorize
 matching brackets and show a more verbose status line.
-.
+
 ## Installation
 
 1. Install Vim-Plug with …
