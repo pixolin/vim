@@ -14,7 +14,9 @@ matching brackets and show a more verbose status line.
       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   ```
 
-2. Run `vim`, discard error messages and install Plugins with 
-  command `:PlugInstall`.
+2. If you run `vim` the first time, an error message will be shown,
+that the color scheme couldn't be found. However, the plugin manager 
+vim-plug and the plugins listed in `vimrc` will then be installed 
+automatically. After restarting Vim everything should be fine.
 
-3. From time to time heck plugins for updates with `:PlugUpdate`
+3. From time to time check plugins for updates with `:PlugUpdate`

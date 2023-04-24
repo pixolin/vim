@@ -41,15 +41,26 @@ set list
 set listchars=tab:>-,trail:·,extends:◀,precedes:▶,nbsp:≣
 
 " Using https://github.com/junegunn/vim-plug
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
 call plug#begin()
 Plug 'tpope/vim-sensible'              " Universal set of defaults
 Plug 'tpope/vim-commentary'            " Comment lines
 Plug 'tpope/vim-fugitive'              " Git integration
-Plug 'jiangmiao/auto-pairs'            " Close brackets, quotes… 
+Plug 'jiangmiao/auto-pairs'            " Close brackets, quotes…
 Plug 'frazrepo/vim-rainbow'            " Brackets in rainbow colors
 Plug 'editorconfig/editorconfig-vim'   " basic coding standards
 Plug 'itchyny/lightline.vim'           " status line
-Plug 'dracula/vim'                     " Dracula color theme
+Plug 'dracula/vim', {'as':'dracula'}   " Dracula color theme
 call plug#end()
 
 " Rainbow brackets
@@ -61,7 +72,7 @@ colorscheme dracula
 
 " Lightline
 let g:lightline = {
-      \ 'colorscheme' : 'dracula', 
+      \ 'colorscheme' : 'dracula',
       \ 'mode_map': {
         \ 'n' : 'N',
         \ 'i' : 'I',
