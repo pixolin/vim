@@ -40,6 +40,7 @@ set t_Co=256
 set list
 set listchars=tab:>-,trail:·,extends:◀,precedes:▶,nbsp:≣
 
+" Using https://github.com/junegunn/vim-plug
 call plug#begin()
 Plug 'tpope/vim-commentary'            " Comment lines
 Plug 'tpope/vim-fugitive'              " Git integration
