@@ -2,13 +2,11 @@ nnoremap <SPACE> <Nop>
 let mapleader=" "
 
 set nocompatible
-syntax on
+" syntax enable
 set modelines=0
 set number
 highlight LineNr ctermfg=grey
-
 set cursorline
-highlight CursorLine cterm=NONE ctermfg=yellow ctermbg=black guibg=grey
 
 set encoding=utf-8
 set wrap
@@ -22,7 +20,7 @@ set expandtab
 set noshiftround
 
 set hlsearch
-set incsearch
+" set incsearch
 set showmatch
 set smartcase
 
@@ -34,11 +32,11 @@ set noshowmode
 
 set showcmd
 
-set backspace=indent,eol,start
+" set backspace=indent,eol,start
 set t_Co=256
 
 set list
-set listchars=tab:>-,trail:·,extends:◀,precedes:▶,nbsp:≣
+set listchars=tab:->,trail:·,extends:◀,precedes:▶,nbsp:≣
 
 " Using https://github.com/junegunn/vim-plug
 " Install vim-plug if not found
@@ -56,21 +54,35 @@ call plug#begin()
 Plug 'tpope/vim-sensible'              " Universal set of defaults
 Plug 'tpope/vim-commentary'            " Comment lines
 Plug 'tpope/vim-fugitive'              " Git integration
-Plug 'jiangmiao/auto-pairs'            " Close brackets, quotes…
-Plug 'frazrepo/vim-rainbow'            " Brackets in rainbow colors
+Plug 'tpope/vim-surround'              " Easily change brackets, quotes
+Plug 'junegunn/fzf'                    " Fuzzy file finder
+Plug 'easymotion/vim-easymotion'       " Jump anywhere
+Plug 'raimondi/delimitmate'            " Close brackets, quotes…
 Plug 'editorconfig/editorconfig-vim'   " basic coding standards
 Plug 'itchyny/lightline.vim'           " status line
+Plug 'junegunn/goyo.vim'               " ~Zen~ Goyo mode
 Plug 'dracula/vim', {'as':'dracula'}   " Dracula color theme
 call plug#end()
 
-" Rainbow brackets
-let g:rainbow_active = 1
+" Easy Motion
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{char}{label}`
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
 " Dracula Theme
 let g:dracula_colorterm = 0
 colorscheme dracula
 
-" Lightline
+"Lightline
 let g:lightline = {
       \ 'colorscheme' : 'dracula',
       \ 'mode_map': {
