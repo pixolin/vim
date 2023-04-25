@@ -22,6 +22,7 @@ set noshiftround
 
 set hlsearch
 " set incsearch
+set ignorecase
 set showmatch
 set smartcase
 
