@@ -1,5 +1,6 @@
-nnoremap <SPACE> <Nop>
-let mapleader=" "
+" General settings  {{{
+
+let mapleader = "\<Space>"
 
 set nocompatible
 " syntax enable
@@ -32,12 +33,24 @@ set noshowmode
 
 set showcmd
 
+" Enable auto completion menu after pressing TAB.
+set wildmenu
+
+" Make wildmenu behave like similar to Bash completion.
+set wildmode=list:longest
+
+" There are certain files that we would never want to edit with Vim.
+" Wildmenu will ignore files with these extensions.
+set wildignore=*.jpg,*.png,*.gif,*.pdf
+
 " set backspace=indent,eol,start
 set t_Co=256
 
 set list
 set listchars=tab:->,trail:·,extends:◀,precedes:▶,nbsp:≣
-
+" }}}
+" Vim-Plug  {{{
+"
 " Using https://github.com/junegunn/vim-plug
 " Install vim-plug if not found
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -49,7 +62,9 @@ endif
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
-
+" }}}
+" Plugins  {{{
+"
 call plug#begin()
 Plug 'tpope/vim-sensible'              " Universal set of defaults
 Plug 'tpope/vim-commentary'            " Comment lines
@@ -63,7 +78,9 @@ Plug 'itchyny/lightline.vim'           " status line
 Plug 'junegunn/goyo.vim'               " ~Zen~ Goyo mode
 Plug 'dracula/vim', {'as':'dracula'}   " Dracula color theme
 call plug#end()
-
+" }}}
+" Plugin-Settings  {{{
+"
 " Easy Motion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
@@ -77,6 +94,11 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+
+" More keybindings
+
+nnoremap <Leader>o o<Esc>
+nnoremap <Leader>O O<Esc>
 
 " Dracula Theme
 let g:dracula_colorterm = 0
@@ -107,3 +129,16 @@ let g:lightline = {
       \ 'right': ''
       \}
 \}
+" }}}
+" Vimscript  {{{
+
+" This will enable code folding.
+" Use the marker method of folding.
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" More Vimscripts code goes here.
+
+" }}}
