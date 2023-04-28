@@ -37,7 +37,6 @@ set wildignore=*.jpg,*.png,*.gif,*.pdf,*.mo
 
 " set backspace=indent,eol,start
 set t_Co=256
-set termguicolors
 
 set list
 set listchars=tab:->,trail:·,extends:◀,precedes:▶,nbsp:≣
