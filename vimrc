@@ -2,11 +2,8 @@
 
 let mapleader = "\<Space>"
 
-set nocompatible
-" syntax enable
 set modelines=0
 set number
-highlight LineNr ctermfg=grey
 set cursorline
 
 set encoding=utf-8
@@ -21,7 +18,6 @@ set expandtab
 set noshiftround
 
 set hlsearch
-" set incsearch
 set ignorecase
 set showmatch
 set smartcase
@@ -36,16 +32,12 @@ set showcmd
 
 " Enable auto completion menu after pressing TAB.
 set wildmenu
-
-" Make wildmenu behave like similar to Bash completion.
 set wildmode=list:longest
-
-" There are certain files that we would never want to edit with Vim.
-" Wildmenu will ignore files with these extensions.
-set wildignore=*.jpg,*.png,*.gif,*.pdf
+set wildignore=*.jpg,*.png,*.gif,*.pdf,*.mo
 
 " set backspace=indent,eol,start
 set t_Co=256
+set termguicolors
 
 set list
 set listchars=tab:->,trail:·,extends:◀,precedes:▶,nbsp:≣
